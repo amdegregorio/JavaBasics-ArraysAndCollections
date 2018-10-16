@@ -21,10 +21,14 @@ public class QueueExample {
       ex.demoArrayDeque();
    }
    
+   /**
+    * Demonstrates the creation and basic usage of an ArrayDeque.
+    */
    public void demoArrayDeque() {
       System.out.println("***Demonstrating an ArrayDeque");
       Deque<String> veggies = new ArrayDeque<String>();
       //Add will throw an exception if the capacity is limited and its out of room
+      //Our example, is variable capacity
       veggies.add("tomatoes");
       veggies.addFirst("peppers");
       veggies.add("eggplant");
@@ -32,12 +36,16 @@ public class QueueExample {
       veggies.add("cucumbers");
       veggies.addLast("broccoli");
       //Offer returns false if it can't add because it was out of room
+      //But our example ArrayDeque is variable length, so they are functionally identical to
+      //the add methods.
       veggies.offer("green beans");
       veggies.offerFirst("beets");
       veggies.offerLast("carrots");
+      //As with other collections, the size() method gives the size of the deque
       System.out.println(String.format("Length of veggies: %d", veggies.size()));
       System.out.println();
       
+      //Determine if the deque contains a given object
       System.out.println(String.format("Veggies contains 'beets': %b", veggies.contains("beets")));
       System.out.println();
       
@@ -105,6 +113,7 @@ public class QueueExample {
       System.out.println(String.format("Length of veggies: %d", veggies.size()));
       System.out.println();
       
+      //iterates starting at the end of the deque
       System.out.println("--Iterating using the descending iterator");
       for(Iterator<String> it = veggies.descendingIterator(); it.hasNext();) {
          String veggie = it.next();
